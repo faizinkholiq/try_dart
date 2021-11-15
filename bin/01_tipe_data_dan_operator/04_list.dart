@@ -17,7 +17,7 @@ void main() {
 
   //menambahkan list dengan list
   List<String> father = ["Shirohige", "Dragon", "Shanks"];
-  asl.addAll(father);
+  asl.addAll(father); 
   print(asl);
 
   // mengurutkan list
