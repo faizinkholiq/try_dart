@@ -1,6 +1,6 @@
 void main() {
   // If Else
-  int nilai = 20;
+  int nilai = 95;
   if (nilai <= 100 && nilai > 0) {
     if (nilai > 90) {
       print('Sangat Baik');
@@ -16,6 +16,9 @@ void main() {
   } else {
     print('Nilai Invalid');
   }
+
+  // Ternary
+  print((nilai <= 100 && nilai > 0)? (nilai > 90)? 'Sangat Baik' : (nilai > 80)? 'Baik' : (nilai > 70)? 'Cukup' : (nilai > 60)? 'Kurang' : 'Sangat Kurang' : 'Nilai Invalid');
 
   // Switch Case
   String rank = 'A';
