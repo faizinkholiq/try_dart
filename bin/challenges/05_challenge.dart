@@ -1,72 +1,60 @@
 void main() {
-  DuitWallet walletFaiz = new DuitWallet(
-    nama: "faizin",
-    saldo: 10000,
-  );
+  DuitWallet dompetFaiz = new DuitWallet("faizin");
 
-  walletFaiz.cakSaldo();
+  dompetFaiz.setSaldo = 10000;
+
+  dompetFaiz.cekSaldo();
   print("--------------------------");
 
-  walletFaiz.transfer(5000);
-  walletFaiz.cakSaldo();
+  dompetFaiz.transfer(5000);
+  dompetFaiz.cekSaldo();
   print("--------------------------");
 
-  walletFaiz.request(2500);
-  walletFaiz.cakSaldo();
+  dompetFaiz.request(2500);
+  dompetFaiz.cekSaldo();
   print("--------------------------");
 
-  print(walletFaiz.getMutasi);
+  print(dompetFaiz.getMutasi);
 }
 
 class DuitWallet {
   String? nama;
-  int? saldo;
-  List<String>? mutasi;
+  int saldo = 0;
+  List mutasi = [];
 
   // Construct
-  DuitWallet({this.nama, this.saldo, this.mutasi}) {
-    this.mutasi = [];
-  }
+  DuitWallet(this.nama);
 
   // Setter & Getter
   set setNama(String nama) {
     this.nama = nama;
   }
 
-  String? get getNama {
-    return nama;
-  }
-
   set setSaldo(int saldo) {
     this.saldo = saldo;
   }
 
-  int? get getSaldo {
-    return saldo;
-  }
+  int get getSaldo => saldo;
 
   set setMutasi(String mutasi) {
-
-    this.mutasi?.add(mutasi);
+    this.mutasi.add(mutasi);
   }
 
-  List<String>? get getMutasi {
-    return mutasi;
-  }
+  List get getMutasi => mutasi;
 
   // Transaction
-  cakSaldo() {
+  cekSaldo() {
     print("nama: $nama");
     print("saldo saat ini $saldo");
   }
 
-  transfer(int jumlah) {
-    setSaldo = saldo! - jumlah;
-    setMutasi = "Transfer dalam jumlah $jumlah";
+  transfer(int nominal) {
+    saldo -= nominal;
+    setMutasi = "Transfer dengan nominal $nominal";
   }
 
-  request(int jumlah) {
-    setSaldo = saldo! + jumlah;
-    setMutasi = "Request dalam jumlah $jumlah";
+  request(int nominal) {
+    saldo += nominal;
+    setMutasi = "Request dengan nominal $nominal";
   }
 }
