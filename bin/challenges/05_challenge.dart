@@ -1,5 +1,5 @@
 void main() {
-  DuitWallet dompetFaiz = new DuitWallet("faizin");
+  DuitWallet dompetFaiz = new DuitWallet(nama: "faizin", bank: "BRI");
 
   dompetFaiz.setSaldo = 10000;
 
@@ -15,15 +15,23 @@ void main() {
   print("--------------------------");
 
   print(dompetFaiz.getMutasi);
+
+  DuitWallet dompetKholiq = new DuitWallet.bca(nama: "kholiq");
+  
+  dompetKholiq.cekSaldo();
+  print("--------------------------");
+
 }
 
 class DuitWallet {
   String? nama;
+  String? bank;
   int saldo = 0;
   List mutasi = [];
 
-  // Construct
-  DuitWallet(this.nama);
+  // Multi Constructor
+  DuitWallet({this.nama, this.bank});
+  DuitWallet.bca({this.nama, this.bank = "BCA"});
 
   // Setter & Getter
   set setNama(String nama) {
@@ -45,6 +53,7 @@ class DuitWallet {
   // Transaction
   cekSaldo() {
     print("nama: $nama");
+    print("bank: $bank");
     print("saldo saat ini $saldo");
   }
 
