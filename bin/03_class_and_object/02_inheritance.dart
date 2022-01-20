@@ -2,13 +2,16 @@ void main() {
   Mobil ford = new Mobil();
   ford.klakson();
   ford.jumlahRoda(4);
+  ford.berjalan();
 
   Motor kawasaki = new Motor();
   kawasaki.klakson();
   kawasaki.jumlahRoda(2);
+  kawasaki.berjalan();
 }
 
-class Kendaraan {
+// Abstract class tidak bisa didefine untuk membuat sebuah object, biasanya hanya digunakan sebagai kerangka untuk Class lain.
+abstract class Kendaraan {
   String suaraKlakson = "tiiiiinnnnnn!!!";
 
   void klakson() {
@@ -18,6 +21,8 @@ class Kendaraan {
   void jumlahRoda(int roda) {
     print(roda);
   }
+
+  void berjalan();
 }
 
 // Extend from kendaraan
@@ -34,6 +39,11 @@ class Mobil extends Kendaraan {
     // Call metthod on parent
     super.jumlahRoda(roda);
   }
+
+  @override
+  void berjalan() {
+    print("mobil berjalan");
+  }
 }
 
 class Motor extends Kendaraan {
@@ -48,5 +58,10 @@ class Motor extends Kendaraan {
 
     // Call metthod on parent
     super.jumlahRoda(roda);
+  }
+
+  @override
+  void berjalan() {
+    print("motor berjalan");
   }
 }
