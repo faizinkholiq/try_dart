@@ -3,18 +3,14 @@ void main() {
 
   dompetFaiz.setSaldo = 10000;
 
-  dompetFaiz.cekSaldo();
-  print("--------------------------");
-
   dompetFaiz.transfer(5000);
-  dompetFaiz.cekSaldo();
-  print("--------------------------");
 
   dompetFaiz.request(2500);
-  dompetFaiz.cekSaldo();
-  print("--------------------------");
 
+  dompetFaiz.cekSaldo();
   print(dompetFaiz.getMutasi);
+
+  print("--------------------------");
 
   DuitWallet dompetKholiq = new DuitWallet.bca(nama: "kholiq");
   
