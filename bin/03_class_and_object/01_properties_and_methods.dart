@@ -17,15 +17,21 @@ void main() {
     saldo: 25000000,
   );
 
+   print(rekeningKholiq.owner);
+  print(rekeningKholiq.bank);
+
   rekeningKholiq.cekSaldo();
   print("--------------------------");
 
   RekeningBang rekeningNasrun = new RekeningBang(
     owner: "nasrun",
-    bank: "BNK - Bank Rakyat Nasrun",
+    bank: "BRN - Bank Rakyat Nasrun",
   );
-
+  
   rekeningNasrun.setSaldo = 1460000000;
+
+  print(rekeningNasrun.owner);
+  print(rekeningNasrun.bank);
   print(rekeningNasrun.getSaldo);
 }
 
