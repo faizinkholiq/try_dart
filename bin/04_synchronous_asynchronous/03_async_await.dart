@@ -3,14 +3,18 @@ Future<void> main() async {
   print('is loaded >__<');
 }
 
-Future<String> printData() async {
-  var data = await fetchData();
-  return 'data: $data';
+Future<dynamic> printData() async {
+  try {
+    var data = await fetchData();
+    return 'data: $data';
+  } catch (err) {
+    return err;
+  }
 }
 
 Future<String> fetchData() {
   return Future.delayed(
     Duration(seconds: 2),
-    () => 'fetch data',
+    () => throw('error get data'),
   );
 }
